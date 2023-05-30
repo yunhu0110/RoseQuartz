@@ -1,0 +1,25 @@
+{
+  "name": "k-eta",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@portone/browser-sdk": "^0.0.1",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.2.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "iamport": "^0.3.4",
+    "jquery": "^3.7.0",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2"
+  }
+}

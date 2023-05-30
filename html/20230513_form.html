@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Korea Electronic Travel Authorization Website, K-ETA</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/south_korea_18282.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!--달력-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+        
+    </head>
+    <body id="page-top">
+         
+        
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shirink" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <font-family : 'Eng'>Menu</font-family>
+                    
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0" >
+                        <li class="nav-item"><a class="nav-link" href="#services">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">ETA Result</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Board</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Contact</a></li>
+                        
+                    </ul>
+                    <a class="btn btn-primary btn-xl text-uppercase" href="#services">APPLY NOW</a>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <img src="assets/img/earth.png" alt="earth" style="width: 20px; height: 20px; filter: brightness(0) invert(1); margin-left: 30px;">
+                        <div class="dropdown" style="margin-left: 10px; font-size: 10px;">
+                            <button class="dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Language
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                                <li><a class="dropdown-item" href="#">한국어</a></li>
+                                <li><a class="dropdown-item" href="#">日本語</a></li>
+                            </ul>
+                        </div>                   
+                      </div>
+                      
+                </div>
+            </div>
+        </nav>
+        
+        <!-- KETA RESULT-->
+        <section class="page-section" id="result">
+            <div class="container">
+              <div class="text-center">
+                <h2 class="result-text text-uppercase">ETA Application Result</h2>
+              </div>
+              <form action="/apply" method="post">
+                <!--여권번호-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="passportnumber" class="label-centered">Passport Number</label>
+                      <input type="text" class="form-control" id="passportnumber" name="passportnumber" required>
+                    </div>
+                  </div>
+                  <!--대륙-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="label-centered">Continent</label>
+                      <select class="form-control" id="continent" name="continent" required>
+                        <option value="">Select Continent</option>
+                        <option value="AFRICA">AFRICA</option>
+                        <option value="AMERICAS">AMERICAS</option>
+                        <option value="ASIA_PACIFIC">ASIA-PACIFIC</option>
+                        <option value="EUROPE">EUROPE</option>
+                        <option value="MIDDLE EAST">MIDDLE EAST</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!--나라-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="label-centered">Country</label>
+                      <select class="form-control" id="country" name="country" required disabled>
+                        <option value="">Please Select the continent first</option>
+                      </select>
+                    </div>
+                  </div>
+                
+                  <!-- Email -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email" class="label-centered">Email</label>
+                      <input type="email" class="form-control" id="email" name="email" required>
+                      <small id="email-error" class="form-text text-danger"></small>
+                    </div>
+                  </div>
+                  
+                  <!--다른나라 국적 가지고 있냐-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="label-centered">Other Citizen</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="othercitizen" id="othercitizen-no" value="0" required>
+                        <label class="form-check-label" for="othercitizen-no">No</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="othercitizen" id="othercitizen-yes" value="1">
+                        <label class="form-check-label" for="othercitizen-yes">Yes</label>
+                      </div>
+                    </div>
+                  </div>                  
+                  <!--다른나라 얼마나 방문?-->
+                  <div class="col-md-6">
+                  <div class="form-group">
+                  <label for="exPothercountry" class="label-centered">Number of Other Countries Visited in the Past 5 Years</label>
+                  <select class="form-control" id="exPothercountry" name="exPothercountry" required>
+                    <option value="">Select</option>
+                    <option value="0">0</option>
+                    <option value="1">1 - 2</option>
+                    <option value="2">3 - 4</option>
+                    <option value="3">5 ~</option>
+                  </select>
+                  </div>
+                  </div>
+
+                  <!--성별-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="label-centered">Gender</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="gender-male" value="0" required>
+                        <label class="form-check-label" for="gender-male">Male</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="gender-female" value="1">
+                        <label class="form-check-label" for="gender-female">Female</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!--Surname(성)-->
+                  <div class="col-md-6">
+                  <div class="form-group">
+                  <label for="surname" class="label-centered">Surname</label>
+                  <input type="text" class="form-control" id="surname" name="surname" required>
+                  </div>
+                  </div>
+
+                  <!--Givename(이름)-->
+                  <div class="col-md-6">
+                  <div class="form-group">
+                  <label for="givenname" class="label-centered">Given Name</label>
+                  <input type="text" class="form-control" id="givenname" name="givenname" required>
+                  </div>
+                  </div>
+
+                  <!--Birth-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="birth" class="label-centered">Birth</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control datepicker" id="birth" name="birth" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\d\d" title="Please enter a valid date in MM/DD/YYYY format" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!--여권 만료 일자-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="passExpire" class="label-centered">Passport Expiration Date</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control datepicker-passExpire" id="passExpire" name="passExpire" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\d\d" title="Please enter a valid date in MM/DD/YYYY format" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                
+
+                  <!-- 전화번호 -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="phonenumber" class="label-centered">Phone Number</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend" style="width: 30%;">
+                          <select class="form-control" id="countrycode" name="countrycode">
+                            <option value="+82">+82 (Korea)</option>
+                            <option value="+1">+1 (USA)</option>
+                          </select>
+                        </div>
+                        <input type="text" class="form-control" id="phonenumber" name="phonenumber" style="width: 70%;" required>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                  <!-- 한국 방문 경험 -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="label-centered">Have you ever visited Korea before?</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exPkorea" id="exPkorea-yes" value="1">
+                        <label class="form-check-label" for="exPkorea-yes">Yes</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exPkorea" id="exPkorea-no" value="0" required>
+                        <label class="form-check-label" for="exPkorea-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- 방문 목적-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="purpose" class="label-centered">Purpose of Visit</label>
+                      <select class="form-control" id="purpose" name="purpose" required>
+                        <option value="">Select Purpose</option>
+                        <option value="0">Individual Tourism</option>
+                        <option value="1">Group Tourism</option>
+                        <option value="2">Visiting</option>
+                        <option value="3">Business</option>
+                        <option value="4">Medical Treatment</option>
+                        <option value="5">Conference</option>
+                        <option value="6">Event</option>
+                        <option value="7">Sports</option>
+                        <option value="8">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- 한국 체류 주소-->
+                  <div class="form-group">
+                    <label for="koreaaddress" class="label-centered">Address in Korea</label>
+                    <input type="text" class="form-control" id="koreaaddress" name="koreaaddress" required>
+                  </div>
+                  </div>
+                  </div>
+
+                  <!--한국 체류 핸드폰 번호-->
+                  <div class="col-md-6">
+                  <div class="form-group">
+                  <label for="koreanumber" class="label-centered">Korea Contact Number</label>
+                  <input type="text" class="form-control" id="koreanumber" name="koreanumber" required>
+                  </div>
+                  </div>
+
+                  <!--직업-->
+                  <div class="col-md-6">
+                  <div class="form-group">
+                  <label for="job" class="label-centered">Occupation</label>
+                  <select class="form-control" id="job" name="job" required>
+                    <option value="">Select Occupation</option>
+                    <option value="0">Unemployed</option>
+                    <option value="1">Self-employed</option>
+                    <option value="2">Agriculture and Livestock</option>
+                    <option value="3">Company Employee</option>
+                    <option value="4">Government Employee</option>
+                    <option value="5">Student</option>
+                    <option value="6">Housewife</option>
+                    <option value="7">Other</option>
+                  </select>
+                  </div>
+                  </div>
+
+                  <!-- 질병 걸린 적 있냐?-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="label-centered">Do you have any disease?</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="disease" id="disease-yes" value="1" required>
+                        <label class="form-check-label" for="disease-yes">Yes</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="disease" id="disease-no" value="0">
+                        <label class="form-check-label" for="disease-no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!--범죄 여부-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="label-centered">과거에 범죄로 유죄 판결을 받으신 적이 있으신가요?</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="guilty" id="guilty-yes" value="1" required>
+                        <label class="form-check-label" for="guilty-yes">예</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="guilty" id="guilty-no" value="0">
+                        <label class="form-check-label" for="guilty-no">아니오</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                    
+                <!-- 결제 방법 -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="paymentMethod" class="label-centered">Payment Method</label>
+                    <select class="form-control" id="paymentMethod" name="paymentMethod" required>
+                      <option value="">Select Payment Method</option>
+                      <option value="paypal">PayPal</option>
+                      <option value="unionpay">UnionPay</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; align-items: center; height: 15vh;">
+                  <button type="submit" onclick="submitAndPay()" style="font-family: Arial Black; background-color: #000080; color: #fff; text-align: center; padding: 20px 40px; border: none; border-radius: 5px; margin: 0;">Submit & Pay</button>
+                </div>
+
+                <!-- PayPal 버튼 생성을 위한 요소 -->
+                <div id="paypalContainer" style="display: none;">
+                  <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+                  <div class="portone-ui-container" data-portone-ui-type="paypal-spb">
+                    <!-- 3. 여기에 페이팔 버튼이 생성됩니다. -->
+                  </div>
+                  <script>
+                    var requestData = {
+                      pg: 'paypal_v2',
+                      pay_method: 'paypal',
+                      amount: 1,
+                      merchant_uid: "order_no_0001",
+                      name: '주문명:결제테스트',
+                      country: 'US'
+                    }
+
+                    function submitAndPay() {
+                      var paymentMethod = document.getElementById("paymentMethod").value;
+
+                      if (paymentMethod === "paypal") {
+                        // Submit 버튼 클릭 시 PayPal 버튼이 나타나도록 처리
+                        document.getElementById("paypalContainer").style.display = "block";
+
+                        // 포트원(Portone) 객체 초기화 및 PayPal 버튼 렌더링
+                        IMP.init("imp35224385");
+                        IMP.loadUI('paypal-spb', requestData, function(rsp) {
+                          console.log(rsp); // rsp 변수를 이용해 처리를 수행합니다.
+                        });
+                      } else {
+                        // 다른 결제 방법에 대한 처리
+                      }
+                    }
+                  </script>
+                </div>
+
+              </form>
+            </div>
+          </section>
+          
+          
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Threads
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Illustration
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Explore
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Graphic Design
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Finish
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Identity
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Lines
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Branding
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Southwest
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Website Design
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Window
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Photography
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <!--대륙, 나라 이어주는 Script-->
+        <script>
+            // DOMContentLoaded 이벤트를 사용하여 스크립트 실행 시점 조정
+            document.addEventListener('DOMContentLoaded', function() {
+              // Continent 선택 시 Country 옵션 동적으로 로드
+              document.getElementById('continent').addEventListener('change', function() {
+                var continent = this.value;
+                var countrySelect = document.getElementById('country');
+        
+                // 기존 옵션 제거
+                while (countrySelect.options.length > 0) {
+                  countrySelect.remove(0);
+                }
+        
+                // Continent에 따른 Country 옵션 추가
+                switch (continent) {
+                  case 'AFRICA':
+                    addCountryOption('Ghana', 'Ghana');
+                    addCountryOption('Egypt', 'Egypt');
+                    break;
+                  case 'AMERICAS':
+                    // Americas에 해당하는 Country 옵션 추가
+                    break;
+                  case 'ASIA_PACIFIC':
+                    addCountryOption('Japan', 'Japan');
+                    break;
+                  case 'EUROPE':
+                    // Europe에 해당하는 Country 옵션 추가
+                    break;
+                  case 'MIDDLE EAST':
+                    // Middle East에 해당하는 Country 옵션 추가
+                    break;
+                  default:
+                    break;
+                }
+        
+                // Country 옵션 활성화
+                countrySelect.disabled = false;
+              });
+        
+              // Country 옵션 추가 함수
+              function addCountryOption(text, value) {
+                var countrySelect = document.getElementById('country');
+                var option = document.createElement('option');
+                option.text = text;
+                option.value = value;
+                countrySelect.add(option);
+              }
+            });
+          </script>
+
+        <!--미작성 처리-->
+        <script>
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+          
+            emailInput.addEventListener('input', function() {
+              const email = emailInput.value;
+              if (email === '') {
+                emailError.textContent = 'Email을 작성해주세요.';
+                emailInput.setCustomValidity('Email을 작성해주세요.');
+              } else if (!isValidEmail(email)) {
+                emailError.textContent = '올바른 Email 형식이 아닙니다.';
+                emailInput.setCustomValidity('올바른 Email 형식이 아닙니다.');
+              } else {
+                emailError.textContent = '';
+                emailInput.setCustomValidity('');
+              }
+            });
+          
+            function isValidEmail(email) {
+              // Email 유효성 검사 로직을 작성해주세요.
+              // 여기서는 간단한 형식 검사만 수행합니다.
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return emailRegex.test(email);
+            }
+          </script>
+        <!--달력 Birth-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js"></script>
+        <script>
+        $(document).ready(function() {
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            todayBtn: true,
+            clearBtn: true,
+            autoclose: true,
+            todayHighlight: true,
+            toggleActive: true,
+            startDate: "01/01/1900",
+            endDate: "today",
+        });
+
+        // 아이콘 클릭 시 달력 활성화
+        $('.input-group-append').on('click', function() {
+            $(this).siblings('.datepicker').focus();
+        });
+        });
+        </script>
+        <!--여권만기 달력-->
+        <script>
+            $(document).ready(function() {
+              $('.datepicker-passExpire').datepicker({
+                format: 'mm/dd/yyyy',
+                todayBtn: true,
+                clearBtn: true,
+                autoclose: true,
+                todayHighlight: true,
+                toggleActive: true,
+                startDate: "today",  // 오늘부터 선택 가능
+              });
+            
+              // 아이콘 클릭 시 달력 활성화
+              $('.input-group-append').on('click', function() {
+                $(this).siblings('.datepicker-passExpire').focus();
+              });
+            });
+            </script>
+        <!--기존-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

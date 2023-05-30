@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Rose Quartz</title>
+  <style>
+    @font-face {
+        font-family: 'kang';
+        src: url('assets/fonts/kang.ttf');
+    }
+    
+    body {
+        font-family: 'kang', sans-serif;
+        
+    }
+    .bold-text {
+        font-weight: bold;
+    }
+    </style>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/icon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+
+
+</head>
+
+<body style="font-family: 'kang', serif;">
+        
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shirink" id="mainNav" >
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." style="width: 100px; height: auto;" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="font-family: 'kang', serif; font-size: 1.2em;">
+                    Menu
+                  </button>
+                  
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0" >
+                        <li class="nav-item bold-text"><a class="nav-link" href="/about" style="font-family: 'kang', serif;">ABOUT</a></li>
+                        <li class="nav-item bold-text"><a class="nav-link" href="/price" style="font-family: 'kang', serif;">PRICE</a></li>
+                        <li class="nav-item bold-text"><a class="nav-link" href="/gallery" style="font-family: 'kang', serif;">GALLERY</a></li>
+                        <li class="nav-item bold-text"><a class="nav-link" href="/reservation" style="font-family: 'kang', serif;">RESERVATION</a></li>
+                        <li class="nav-item bold-text"><a class="nav-link" href="/review" style="font-family: 'kang', serif;">REVIEW</a></li>
+                          
+                        
+                    </ul>
+                      
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Main 사진 -->
+      
+        <div class="container" style="height: 80%;">
+            <img id="backgroundImage" src="../assets/img/Main3.jpg" alt="Background Image" style="display: block; margin: 0 auto; max-width: 70%; height: auto; margin-top: 60px;">
+          </div>
+          
+          
+          
+          <style>
+            #backgroundImage {
+              transition: opacity 1s ease-in-out;
+            }
+          </style>
+          
+          <script>
+            var images = ['Main3.jpg', 'Main2.jpg', 'Main1.jpg']; // 이미지 파일명 리스트
+            var currentIndex = 0; // 현재 이미지 인덱스
+          
+            function changeBackgroundImage() {
+              var image = document.getElementById('backgroundImage');
+              image.style.opacity = 0; // 이미지를 투명하게 만들어서 페이드 아웃 효과 생성
+              setTimeout(function() {
+                image.src = '../assets/img/' + images[currentIndex];
+                image.style.opacity = 1; // 이미지를 원래대로 만들어서 페이드 인 효과 생성
+                currentIndex = (currentIndex + 1) % images.length; // 다음 이미지 인덱스 업데이트
+              }, 1000); // 1초 후에 이미지 변경
+            }
+          
+            setInterval(changeBackgroundImage, 3000); // 6초마다 이미지 변경
+          </script>
+          
+          
+          
+          
+          
+          
+          
+        
+          
+        <!-- Footer-->
+        <footer class="footer">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <style>
+                        .logo-container {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-bottom: 10px;
+                        }
+
+                        .logo-container img {
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 10px;
+                            cursor: pointer;
+                        }
+
+                        .address-container {
+                            text-align: center;
+                            font-family: 'kang', serif;
+                        }
+                    </style>
+
+                    <!-- 로고 컨테이너 -->
+                    <div class="col-lg-12 logo-container" style="margin-top: 10px;">
+                        <a href="https://www.kakaocorp.com/page/" target="_blank">
+                            <img src="assets/img/Kakao.png" alt="Kakao Logo">
+                        </a>
+                        <a href="https://naver.com" target="_blank">
+                            <img src="assets/img/Naver.png" alt="Naver Logo">
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <img src="assets/img/Insta.png" alt="Instagram Logo">
+                        </a>
+                    </div>
+
+                    <div class="col-lg-12 address-container bold-text">
+                        <div class="address">서울시 광진구 능동로 81</div>
+                        <div class="address">더라움펜트하우스 102동 1901호</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        
+          
+          
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!--<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>-->
+    </body>
+</html>
